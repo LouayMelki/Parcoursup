@@ -1,0 +1,7 @@
+numpy
+matplotlib
+sklearn
+pandas
+jupyter
+ramp-workflow
+seaborn
