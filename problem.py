@@ -14,7 +14,7 @@ _target_column_name = 'pct_admitted_female_among_admitted'
 # A type (class) which will be used to create wrapper objects for y_pred
 Predictions = rw.prediction_types.make_regression()
 # An object implementing the workflow
-workflow = rw.workflows.EstimatorExternalData()
+workflow = rw.workflows.Estimator()
 
 class NormalizedRMSE(BaseScoreType):
     is_lower_the_better = True
