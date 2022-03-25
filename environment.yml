@@ -1,0 +1,12 @@
+name: ramp-postbac
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - jupyter
+  - pip:
+      - ramp-workflow
