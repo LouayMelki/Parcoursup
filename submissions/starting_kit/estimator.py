@@ -10,7 +10,7 @@ def get_estimator():
         'school_status','category_school','path','year','department','region_name'
     ]
     drop_cols = [
-        "super_path","sub_path"
+        "super_path","sub_path","school_name"
     ]
 
     categorical_transformer = Pipeline(steps=[
