@@ -6,7 +6,7 @@ import rampwf as rw
 from sklearn.model_selection import StratifiedShuffleSplit
 from rampwf.score_types.base import BaseScoreType
 from sklearn.model_selection import ShuffleSplit
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_error
 
 problem_title = 'Prediction of the pourcentage of admitted female students in Parcoursup'
 
@@ -16,7 +16,7 @@ Predictions = rw.prediction_types.make_regression()
 # An object implementing the workflow
 workflow = rw.workflows.Estimator()
 
-class NormalizedRMSE(BaseScoreType):
+class MAE(BaseScoreType):
     is_lower_the_better = True
     minimum = 0.0
     maximum = float('inf')
@@ -26,12 +26,11 @@ class NormalizedRMSE(BaseScoreType):
         self.precision = precision
 
     def __call__(self, y_true, y_pred):
-        rmse = np.sqrt(mean_squared_error(y_true, y_pred))
-        return rmse / np.std(y_true)
+        return mean_absolute_error(y_true, y_pred)
 
 
 score_types = [
-    NormalizedRMSE(name='normalized rmse', precision=5),
+    MAE(name='meanabsoluteerror', precision=5),
 ]
 
 
